@@ -1,0 +1,11 @@
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello from Product_Repo sample Replit-style project!"
+
+if __name__ == "__main__":
+    # Replit usually sets HOST/PORT envs, but this works locally too
+    app.run(host="0.0.0.0", port=8000, debug=True)

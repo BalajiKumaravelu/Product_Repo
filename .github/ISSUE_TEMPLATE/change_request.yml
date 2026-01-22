@@ -1,0 +1,39 @@
+name: Change Request
+description: Controlled change with scope, risk, and rollback.
+title: "CR: "
+labels: ["cr-needed"]
+body:
+  - type: textarea
+    id: reason
+    attributes:
+      label: Business Reason
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope / Out of Scope
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+    validations:
+      required: true
+  - type: dropdown
+    id: risk
+    attributes:
+      label: Risk Level
+      options:
+        - Low
+        - Medium
+        - High
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Rollback Plan
+    validations:
+      required: true

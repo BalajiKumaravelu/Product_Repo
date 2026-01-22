@@ -1,0 +1,31 @@
+name: CI - DevOps Scaffold
+
+on:
+  push:
+    paths:
+      - "devops_scaffold/**"
+  pull_request:
+    paths:
+      - "devops_scaffold/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: devops_scaffold
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Smoke test
+        run: |
+          python -c "import app; print('CI scaffold OK')"
